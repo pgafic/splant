@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .application img{
+      width: 500px;
+    }
+    .contact p{
+      text-align: center;
+      padding-left:200px;
+       padding-right:200px;
+    }
+    .home1 img{
+    width: 300px;
+    margin-bottom: 1px;
+    }
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #f8f8f8;
+    }
+
+    /* Header Styles */
+    header {
+      background: Green;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    header nav {
+      margin-top: 10px;
+    }
+
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      padding: 10px 15px;
+      display: inline-block;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-radius: 5px;
+    }
+
+    header nav a:hover {
+      background-color: white;
+      color: #333;
+    }
+
+    /* Section styles */
+    #home {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 24px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    #catalog {
+      text-align: center;
+      margin-top: 1px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    #catalog h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    /* Product Card Styles */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .product-card {
+      width: 200px;
+      height: 300px;
+      perspective: 1000px;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .product-card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+
+    .product-card.flipped .product-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .product-card-front,
+    .product-card-back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .product-card-front {
+      background-color: #fff;
+    }
+
+    .product-card-front img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card-front h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .product-card-back {
+      background-color: #f8f8f8;
+      transform: rotateY(180deg);
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .product-card-back p {
+      margin: 0;
+      padding: 10px;
+      font-size: 14px;
+      text-align: center;
+      color: #333;
+    }
+
+    .product-card:hover .product-card-front img {
+      transform: scale(1.8);
+    }
+
+    /* Keyframes for Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Media Queries for responsiveness */
+    @media (max-width: 1200px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+      }
+
+      header h1 {
+        font-size: 22px;
+      }
+
+      #catalog h2 {
+        font-size: 32px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+      }
+
+      .product-card {
+        width: 180px;
+        height: 270px;
+      }
+
+      header h1 {
+        font-size: 20px;
+      }
+
+      #catalog h2 {
+        font-size: 28px;
+      }
+
+      #home p {
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-grid {
+        grid-template-columns: 1fr; /* 1 item per row */
+      }
+
+      .product-card {
+        width: 100%;
+        height: auto;
+      }
+
+      header h1 {
+        font-size: 18px;
+      }
+
+      #catalog h2 {
+        font-size: 24px;
+      }
+
+      #home p {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>PGA Green Global Solutions Co.</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+  </nav>
+</header>
+
+<div class="home1">
+<section id="home">
+  <img src="logo/Plantex.png">
+</section>
+</div>
+
+
+<section id="catalog">
+  <h2>Our Products</h2>
+  <div class="product-grid">
+    <div class="product-card" onclick="toggleCard(this)">
+      <div class="product-card-inner">
+        <div class="product-card-front">
+          <img src="image/9.png" alt="Product 1">
+          <h3>Plantex All-In-One Solution</h3>
+        </div>
+        <div class="product-card-back">
+          <p>This product is an <b> odor eliminator, disinfectant, wastewater treatment solution, grease cutter/degreaser, and compost activator, made with 100% certified organic and biodegradable </b> ingredients. </p>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" onclick="toggleCard(this)">
+      <div class="product-card-inner">
+        <div class="product-card-front">
+          <img src="image/2.png" alt="Product 2">
+          <h3>Plantex Liquid Hand Soap</h3>
+        </div>
+        <div class="product-card-back">
+          <p>This safe and effective anti-bacterial soap kills 99.9% of most germs, features a long-lasting floral scent, and is biodegradable.</p>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" onclick="toggleCard(this)">
+      <div class="product-card-inner">
+        <div class="product-card-front">
+          <img src="image/3.png" alt="Product 3">
+          <h3>Plantex Ultimate Solution</h3>
+        </div>
+        <div class="product-card-back">
+          <p>This multipurpose cleaner effectively eradicates odor at its source while disinfecting, kills 100% of pathogenic microorganisms, removes hard stains, molds, mildew, and cleans tile grouts, and is biodegradable.</p>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" onclick="toggleCard(this)">
+      <div class="product-card-inner">
+        <div class="product-card-front">
+          <img src="image/5.png" alt="Product 4">
+          <h3>Plantex Fabric Conditioner</h3>
+        </div>
+        <div class="product-card-back">
+          <p>This product provides a fresh fragrance with anti-bacterial properties, softens fabrics, reduces static cling, and is non-toxic and biodegradable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="product-grid">
+    <div class="product-card" onclick="toggleCard(this)">
+      <div class="product-card-inner">
+        <div class="product-card-front">
+          <img src="image/8.png" alt="Product 5">
+          <h3>Plantex Grease Away</h3>
+        </div>
+        <div class="product-card-back">
+          <p>This powerful dishwashing liquid is an effective grease cutter/digester, tough on grease yet gentle on your hands, food-grade, and biodegradable.</p>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" onclick="toggleCard(this)">
+      <div class="product-card-inner">
+        <div class="product-card-front">
+          <img src="image/4.png" alt="Product 6">
+          <h3>Plantex Biozyme</h3>
+        </div>
+        <div class="product-card-back">
+          <p>This product contains 21 beneficial and effective microorganisms, acts as a pH corrector, and prevents sludge accumulation.</p>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" onclick="toggleCard(this)">
+      <div class="product-card-inner">
+        <div class="product-card-front">
+          <img src="image/6.png" alt="Product 7">
+          <h3>Plantex Organic Bath Soap</h3>
+        </div>
+        <div class="product-card-back">
+          <p>This patchouli-scented organic bath soap is made with 100% plant and fruit-based ingredients, is germicidal, removes body odor, contains a natural moisturizer, and is biodegradable.</p>
+        </div>
+      </div>
+    </div>
+    <div class="product-card" onclick="toggleCard(this)">
+      <div class="product-card-inner">
+        <div class="product-card-front">
+          <img src="image/7.png" alt="Product 8">
+          <h3>Plantex Green Organic Laundry Detergent</h3>
+        </div>
+        <div class="product-card-back">
+          <p>This organic laundry powder effectively cleans clothes with a long-lasting deodorizing effect, uses an organic deodorizing compound, leaves no chemical residue, is suitable for both hand and machine wash, and is biodegradable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="application">
+<img src="image/application.png">
+</div>
+
+<br> 
+<br>
+<br>
+<br>
+<div class="contact">
+
+ <b> <p> ILOILO BRANCH </p> </b>
+
+<p> Jomabo Bldg., #78 Commission Civil,
+Jaro, Iloilo City
+<br>
+Tel. No.:  (033)-327-6430
+<br>
+Mobile: 0917-144-9180
+<br>
+Email: pgagreenglobalsolutions@gmail.com</p>
+<b> <p> BACOLOD BRANCH </p> </b>
+
+<p>Room  3 Carmel Arcade, La Salle Avenue, Bacolod City
+  <br>
+Tel No.: (034)-467-4473
+<br>
+Mobile: 0917-148-0165
+<br>
+Email: pgabacolod2021@gmail.com </p>
+</div>
+
+<script>
+  function toggleCard(card) {
+    card.classList.toggle("flipped");
+  }
+</script>
+
+</body>
+</html>

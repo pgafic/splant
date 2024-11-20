@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Showcase</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    /* Header Styles */
+    header {
+      background: #28a745; /* Green color */
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      transition: color 0.3s ease;
+    }
+
+    header nav {
+      margin-top: 10px;
+    }
+
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      padding: 10px 15px;
+      display: inline-block;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-radius: 5px;
+    }
+
+    header nav a:hover {
+      background-color: white;
+      color: #333;
+    }
+
+    /* Home Section */
+    .home {
+      margin-top: 40px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .home p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    .greet p {
+      font-size: 50px;
+      margin-bottom: 10px;
+      animation: zoomIn 1.5s ease;
+    }
+
+    /* Logo Styles */
+    .logo img {
+      width: 200px;
+      height: auto;
+      margin: 30px auto;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* About Section */
+    .about {
+      margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .about p {
+      padding: 0 20px;
+      max-width: 800px;
+      line-height: 1.6;
+      display: none;
+      margin-top: 20px;
+    }
+
+    .about p.visible {
+      display: block;
+      animation: fadeInText 2s ease-in-out;
+    }
+
+    .about button {
+      padding: 12px 24px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .about button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    /* Title Section */
+    .prdtitle p {
+      font-size: 50px;
+      text-align: center;
+      margin-top: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    /* Keyframes for Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInText {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    /* Footer Styles */
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1em 0;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    .about img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      margin-top: 20px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PGA Green Global Solutions Co.</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+    </nav>
+  </header>
+
+  <div class="home">
+    <section id="home">
+      <div class="greet">
+        <b><p>Welcome!</p></b>
+      </div>
+      <p>Discover our range of amazing products of Plantex!</p>
+    </section>
+  </div>
+
+  <div class="logo">
+    <img src="logo/Plantex.png" alt="Plantex Logo">
+  </div>
+
+  <div class="prdtitle">
+    <b><p>Plantex All-In-One Solution</p></b>
+  </div>
+
+  <div class="about">
+    <img src="image/1.png" alt="About Image">
+    <button onclick="toggleAbout()">Learn More</button>
+    <h1>PGA Green Global Solutions Co.</h1>
+    <p>
+      PGA Green Global Solutions Inc., headquartered in Commission Civil Jaro,
+      Iloilo City, Philippines, is a competent player in the general construction
+      industry, and distributor of various general merchandise, primarily operating
+      in the Western Visayas region. The company specializes in providing
+      comprehensive solutions for residential, commercial, and industrial spaces
+      with a focus on quality and sustainability. We offer a wide range of products &
+      services that provides the utmost convenience to our customers that epitomize
+      our tagline: “We Figure Things Out!”
+      <br><br>
+      Plantex All-in-one is the flagship product of PGA, which they are the exclusive
+      distributor in the region. Plantex offers environmentally friendly cleaning
+      solutions by providing organically made products.
+    </p>
+  </div>
+
+  <script>
+    function toggleAbout() {
+      const aboutText = document.querySelector('.about p');
+      aboutText.classList.toggle('visible');
+    }
+  </script>
+
+</body>
+</html>
