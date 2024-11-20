@@ -6,98 +6,88 @@
   <title>Products</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-   .application {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 20px 0; /* Optional spacing */
-}
-
-.application img {
-  max-width: 90%; /* Makes the image responsive */
-  height: auto; /* Maintains aspect ratio */
-  display: block; /* Ensures it centers properly */
-    }
-    .contact p{
-      text-align: center;
-      padding-left:200px;
-       padding-right:200px;
-    }
-    .home1 img{
-    width: 300px;
-    margin-bottom: 1px;
-    }
     /* General Styles */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
-      background-color: #f8f8f8;
+      background-color: #f4f4f4;
+      color: #333;
     }
 
     /* Header Styles */
     header {
-      background: Green;
+      background-color: #2a7a1e; /* PGA Green color */
       color: white;
-      padding: 20px 0;
+      padding: 20px;
       text-align: center;
+      width: 100%;
       position: sticky;
       top: 0;
       z-index: 1000;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      width: 100%;
     }
 
     header h1 {
       margin: 0;
-      font-size: 24px;
+      font-size: 28px;
+      font-weight: 700;
     }
 
     header nav {
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
     header nav a {
       color: white;
       text-decoration: none;
-      margin: 0 15px;
-      padding: 10px 15px;
+      margin: 0 20px;
+      padding: 10px 20px;
       display: inline-block;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      font-size: 16px;
       border-radius: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     header nav a:hover {
       background-color: white;
-      color: #333;
+      color: #2a7a1e;
     }
 
-    /* Section styles */
+    /* Home Section */
     #home {
       text-align: center;
-      margin-top: 20px;
-      font-size: 24px;
+      margin-top: 30px;
+      font-size: 28px;
       animation: fadeIn 2s ease-in-out;
     }
 
+    #home img {
+      width: 50%;
+      margin: 20px 0;
+    }
+
+    /* Product Catalog */
     #catalog {
       text-align: center;
-      margin-top: 1px;
+      margin-top: 30px;
+      padding: 0 15px;
       animation: fadeIn 2s ease-in-out;
     }
 
     #catalog h2 {
       font-size: 36px;
       margin-bottom: 20px;
+      font-weight: 700;
+      color: #2a7a1e;
     }
 
-    /* Product Card Styles */
+    /* Product Grid */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr); /* 4 items per row */
@@ -106,13 +96,17 @@
       margin-top: 20px;
     }
 
+    /* Product Card */
     .product-card {
-      width: 200px;
-      height: 300px;
+      width: 250px;
+      height: 350px;
       perspective: 1000px;
       cursor: pointer;
       position: relative;
       transition: transform 0.3s ease-in-out;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .product-card-inner {
@@ -138,46 +132,61 @@
       align-items: center;
       justify-content: center;
       border: 1px solid #ccc;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 10px;
-      transition: background-color 0.3s ease;
+      padding: 15px;
+      box-sizing: border-box;
     }
 
     .product-card-front {
-      background-color: #fff;
+      background-color: #ffffff;
     }
 
     .product-card-front img {
-      width: 100px;
+      width: 120px;
       height: auto;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       transition: transform 0.3s ease;
     }
 
     .product-card-front h3 {
       margin: 0;
       font-size: 18px;
-      font-weight: bold;
+      font-weight: 600;
     }
 
     .product-card-back {
-      background-color: #f8f8f8;
+      background-color: #f7f7f7;
       transform: rotateY(180deg);
-      padding: 10px;
-      box-sizing: border-box;
     }
 
     .product-card-back p {
-      margin: 0;
-      padding: 10px;
       font-size: 14px;
       text-align: center;
-      color: #333;
+      color: #555;
+      padding: 10px;
     }
 
     .product-card:hover .product-card-front img {
-      transform: scale(1.8);
+      transform: scale(1.1);
+    }
+
+    /* Contact Section */
+    .contact {
+      text-align: center;
+      margin: 40px 0;
+      font-size: 16px;
+    }
+
+    .contact p {
+      padding-left: 30px;
+      padding-right: 30px;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* Application Section */
+    .application img {
+      width: 60%;
+      margin: 40px 0;
     }
 
     /* Keyframes for Animations */
@@ -192,14 +201,14 @@
       }
     }
 
-    /* Media Queries for responsiveness */
+    /* Media Queries for Responsiveness */
     @media (max-width: 1200px) {
       .product-grid {
         grid-template-columns: repeat(3, 1fr); /* 3 items per row */
       }
 
       header h1 {
-        font-size: 22px;
+        font-size: 24px;
       }
 
       #catalog h2 {
@@ -209,42 +218,45 @@
 
     @media (max-width: 768px) {
       .product-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
-  }
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+      }
 
       .product-card {
-        width: 180px;
-        height: 270px;
+        width: 200px;
+        height: 300px;
       }
 
       header h1 {
-        font-size: 20px;
+        font-size: 22px;
       }
 
       #catalog h2 {
         font-size: 28px;
       }
 
-      #home p {
-        font-size: 20px;
+      .contact p {
+        font-size: 14px;
+      }
+
+      .application img {
+        width: 50%;
       }
     }
 
     @media (max-width: 480px) {
-        .product-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
-    gap: 15px; /* Adjust spacing between items */
-  }
+      .product-grid {
+        grid-template-columns: 1fr; /* 1 item per row */
+        gap: 15px;
+      }
 
-  .product-card {
-    width: 100%; /* Full width for mobile */
-    height: auto; /* Auto height to maintain aspect ratio */
-  }
+      .product-card {
+        width: 100%; /* Full width for mobile */
+        height: auto;
+      }
 
-  .product-card-front img {
-    width: 80%; /* Scale down images for smaller screens */
-    height: auto;
-  }
+      .product-card-front img {
+        width: 80%; /* Scale down images */
+      }
 
       header h1 {
         font-size: 18px;
@@ -254,14 +266,12 @@
         font-size: 24px;
       }
 
-      #home p {
-        font-size: 18px;
+      .contact p {
+        font-size: 12px;
       }
-      .home1 img{
-        width:50%;
-      }
-      .application img{
-        width:50%;
+
+      .application img {
+        width: 60%;
       }
     }
   </style>
@@ -276,12 +286,9 @@
   </nav>
 </header>
 
-<div class="home1">
 <section id="home">
-  <img src="Plantex.png">
+  <img src="logo/Plantex.png" alt="Logo">
 </section>
-</div>
-
 
 <section id="catalog">
   <h2>Our Products</h2>
@@ -293,7 +300,7 @@
           <h3>Plantex All-In-One Solution</h3>
         </div>
         <div class="product-card-back">
-          <p>This product is an <b> odor eliminator, disinfectant, wastewater treatment solution, grease cutter/degreaser, and compost activator, made with 100% certified organic and biodegradable </b> ingredients. </p>
+          <p>This product is an <b>odor eliminator, disinfectant, wastewater treatment solution, grease cutter/degreaser, and compost activator</b>, made with 100% certified organic and biodegradable ingredients.</p>
         </div>
       </div>
     </div>
@@ -381,40 +388,28 @@
     </div>
   </div>
 </section>
+
 <div class="application">
-<img src="application.png">
+  <img src="image/application.png" alt="Application Image">
 </div>
 
-<br> 
-<br>
-<br>
-<br>
 <div class="contact">
+  <b><p>ILOILO BRANCH</p></b>
+  <p>Jomabo Bldg., #78 Commission Civil, Jaro, Iloilo City
+  <br>Tel. No.: (033)-327-6430
+  <br>Mobile: 0917-144-9180
+  <br>Email: pgagreenglobalsolutions@gmail.com</p>
 
- <b> <p> ILOILO BRANCH </p> </b>
-
-<p> Jomabo Bldg., #78 Commission Civil,
-Jaro, Iloilo City
-<br>
-Tel. No.:  (033)-327-6430
-<br>
-Mobile: 0917-144-9180
-<br>
-Email: pgagreenglobalsolutions@gmail.com</p>
-<b> <p> BACOLOD BRANCH </p> </b>
-
-<p>Room  3 Carmel Arcade, La Salle Avenue, Bacolod City
-  <br>
-Tel No.: (034)-467-4473
-<br>
-Mobile: 0917-148-0165
-<br>
-Email: pgabacolod2021@gmail.com </p>
+  <b><p>BACOLOD BRANCH</p></b>
+  <p>Room 3 Carmel Arcade, La Salle Avenue, Bacolod City
+  <br>Tel No.: (034)-467-4473
+  <br>Mobile: 0917-148-0165
+  <br>Email: pgagreenglobalsolutions@yahoo.com</p>
 </div>
 
 <script>
   function toggleCard(card) {
-    card.classList.toggle("flipped");
+    card.classList.toggle('flipped');
   }
 </script>
 
