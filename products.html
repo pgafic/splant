@@ -6,28 +6,6 @@
   <title>Products</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-   .application {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin: 20px 0; /* Optional spacing */
-}
-
-.application img {
-  max-width: 90%; /* Makes the image responsive */
-  height: auto; /* Maintains aspect ratio */
-  display: block; /* Ensures it centers properly */
-    }
-    .contact p{
-      text-align: center;
-      padding-left:200px;
-       padding-right:200px;
-    }
-    .home1 img{
-    width: 300px;
-    margin-bottom: 1px;
-    }
     /* General Styles */
     body {
       font-family: Arial, sans-serif;
@@ -39,48 +17,53 @@
       justify-content: center;
       min-height: 100vh;
       background-color: #f8f8f8;
+      width: 100%;
+      overflow-x: hidden;
     }
 
     /* Header Styles */
-  header {
-  background: linear-gradient(to right, #2ecc71, #27ae60); /* Gradient for aesthetic look */
-  color: white;
-  padding: 10px 0;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  transition: all 0.3s ease; /* Smooth transition for adjustments */
-}
+    header {
+      background: green;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 100%;
+    }
 
-header h1 {
-  margin: 0;
-  font-size: 24px;
-  line-height: 1.2;
-}
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
 
-header nav {
-  margin-top: 10px;
-}
+    header nav {
+      margin-top: 10px;
+    }
 
-header nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-  padding: 8px 12px;
-  display: inline-block;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  border-radius: 5px;
-}
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      padding: 10px 15px;
+      display: inline-block;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-radius: 5px;
+    }
 
-header nav a:hover {
-  background-color: white;
-  color: #333;
-}
+    header nav a:hover {
+      background-color: white;
+      color: #333;
+    }
 
-    /* Section styles */
+    /* Home Section */
+    .home1 img {
+      width: 50%;
+      margin-bottom: 20px;
+    }
+
     #home {
       text-align: center;
       margin-top: 20px;
@@ -88,9 +71,10 @@ header nav a:hover {
       animation: fadeIn 2s ease-in-out;
     }
 
+    /* Catalog Section */
     #catalog {
       text-align: center;
-      margin-top: 1px;
+      margin-top: 20px;
       animation: fadeIn 2s ease-in-out;
     }
 
@@ -99,18 +83,18 @@ header nav a:hover {
       margin-bottom: 20px;
     }
 
-    /* Product Card Styles */
+    /* Product Grid Styles */
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+      grid-template-columns: repeat(4, 1fr); /* 4 items per row for desktop */
       gap: 20px;
       justify-content: center;
-      margin-top: 20px;
+      width: 90%;
     }
 
     .product-card {
-      width: 200px;
-      height: 300px;
+      width: 100%;
+      height: auto;
       perspective: 1000px;
       cursor: pointer;
       position: relative;
@@ -151,7 +135,7 @@ header nav a:hover {
     }
 
     .product-card-front img {
-      width: 100px;
+      width: 80%;
       height: auto;
       margin-bottom: 10px;
       transition: transform 0.3s ease;
@@ -161,6 +145,7 @@ header nav a:hover {
       margin: 0;
       font-size: 18px;
       font-weight: bold;
+      text-align: center;
     }
 
     .product-card-back {
@@ -179,10 +164,30 @@ header nav a:hover {
     }
 
     .product-card:hover .product-card-front img {
-      transform: scale(1.8);
+      transform: scale(1.2);
     }
 
-    /* Keyframes for Animations */
+    /* Application Section */
+    .application {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin: 20px 0;
+    }
+
+    .application img {
+      max-width: 80%;
+      height: auto;
+    }
+
+    /* Contact Section */
+    .contact p {
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    /* Keyframes */
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -194,100 +199,32 @@ header nav a:hover {
       }
     }
 
-    /* Media Queries for responsiveness */
+    /* Media Queries */
     @media (max-width: 1200px) {
       .product-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 items per row */
-  gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-      header h1 {
-        font-size: 22px;
-      }
-
-      #catalog h2 {
-        font-size: 32px;
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
       }
     }
 
     @media (max-width: 768px) {
       .product-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
-  }
-
-      .product-card {
-        width: 180px;
-        height: 270px;
-      }
-
-    header {
-    background: linear-gradient(to bottom, #27ae60, #2ecc71); /* Adjust gradient direction */
-    padding: 8px 0;
-  }
-
-  header h1 {
-    font-size: 20px;
-  }
-
-  header nav a {
-    margin: 0 8px;
-    padding: 6px 10px;
-  }
-
-      #catalog h2 {
-        font-size: 28px;
-      }
-
-      #home p {
-        font-size: 20px;
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+        gap: 15px;
       }
     }
 
     @media (max-width: 480px) {
-        .product-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
-    gap: 15px; /* Adjust spacing between items */
-  }
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
-  .product-card {
-    width: 100%; /* Full width for mobile */
-    height: auto; /* Auto height to maintain aspect ratio */
-  }
+      .home1 img,
+      .application img {
+        width: 90%;
+      }
 
-  .product-card-front img {
-    width: 80%; /* Scale down images for smaller screens */
-    height: auto;
-  }
-
-     header {
-    background-color: #27ae60; /* Simple background for very small screens */
-    padding: 5px 0;
-  }
-
-  header h1 {
-    font-size: 18px;
-  }
-
-  header nav a {
-    font-size: 14px;
-    padding: 5px 8px;
-  }
-}
       #catalog h2 {
         font-size: 24px;
-      }
-
-      #home p {
-        font-size: 18px;
-      }
-      .home1 img{
-        width:50%;
-      }
-      .application img{
-        width:50%;
       }
     }
   </style>
@@ -303,65 +240,15 @@ header nav a:hover {
 </header>
 
 <div class="home1">
-<section id="home">
-  <img src="logo/Plantex.png">
-</section>
+  <section id="home">
+    <img src="logo/Plantex.png" alt="Plantex Logo">
+  </section>
 </div>
-
 
 <section id="catalog">
   <h2>Our Products</h2>
   <div class="product-grid">
-    <div class="product-card" onclick="toggleCard(this)">
-      <div class="product-card-inner">
-        <div class="product-card-front">
-          <img src="9.png" alt="Product 1">
-          <h3>Plantex All-In-One Solution</h3>
-        </div>
-        <div class="product-card-back">
-          <p>This product is an <b> odor eliminator, disinfectant, wastewater treatment solution, grease cutter/degreaser, and compost activator, made with 100% certified organic and biodegradable </b> ingredients. </p>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" onclick="toggleCard(this)">
-      <div class="product-card-inner">
-        <div class="product-card-front">
-          <img src="2.png" alt="Product 2">
-          <h3>Plantex Liquid Hand Soap</h3>
-        </div>
-        <div class="product-card-back">
-          <p>This safe and effective anti-bacterial soap kills 99.9% of most germs, features a long-lasting floral scent, and is biodegradable.</p>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" onclick="toggleCard(this)">
-      <div class="product-card-inner">
-        <div class="product-card-front">
-          <img src="3.png" alt="Product 3">
-          <h3>Plantex Ultimate Solution</h3>
-        </div>
-        <div class="product-card-back">
-          <p>This multipurpose cleaner effectively eradicates odor at its source while disinfecting, kills 100% of pathogenic microorganisms, removes hard stains, molds, mildew, and cleans tile grouts, and is biodegradable.</p>
-        </div>
-      </div>
-    </div>
-    <div class="product-card" onclick="toggleCard(this)">
-      <div class="product-card-inner">
-        <div class="product-card-front">
-          <img src="5.png" alt="Product 4">
-          <h3>Plantex Fabric Conditioner</h3>
-        </div>
-        <div class="product-card-back">
-          <p>This product provides a fresh fragrance with anti-bacterial properties, softens fabrics, reduces static cling, and is non-toxic and biodegradable.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <br>
-
-  <div class="product-grid">
-    <div class="product-card" onclick="toggleCard(this)">
+   <div class="product-card" onclick="toggleCard(this)">
       <div class="product-card-inner">
         <div class="product-card-front">
           <img src="8.png" alt="Product 5">
@@ -407,35 +294,23 @@ header nav a:hover {
     </div>
   </div>
 </section>
+
 <div class="application">
-<img src="image/application.png">
+  <img src="image/application.png" alt="Application Image">
 </div>
 
-<br> 
-<br>
-<br>
-<br>
 <div class="contact">
+  <b><p>ILOILO BRANCH</p></b>
+  <p>Jomabo Bldg., #78 Commission Civil, Jaro, Iloilo City<br>
+  Tel. No.: (033)-327-6430<br>
+  Mobile: 0917-144-9180<br>
+  Email: pgagreenglobalsolutions@gmail.com</p>
 
- <b> <p> ILOILO BRANCH </p> </b>
-
-<p> Jomabo Bldg., #78 Commission Civil,
-Jaro, Iloilo City
-<br>
-Tel. No.:  (033)-327-6430
-<br>
-Mobile: 0917-144-9180
-<br>
-Email: pgagreenglobalsolutions@gmail.com</p>
-<b> <p> BACOLOD BRANCH </p> </b>
-
-<p>Room  3 Carmel Arcade, La Salle Avenue, Bacolod City
-  <br>
-Tel No.: (034)-467-4473
-<br>
-Mobile: 0917-148-0165
-<br>
-Email: pgabacolod2021@gmail.com </p>
+  <b><p>BACOLOD BRANCH</p></b>
+  <p>Room 3 Carmel Arcade, La Salle Avenue, Bacolod City<br>
+  Tel No.: (034)-467-4473<br>
+  Mobile: 0917-148-0165<br>
+  Email: pgabacolod2021@gmail.com</p>
 </div>
 
 <script>
