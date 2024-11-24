@@ -4,9 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Showcase</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <style>
-    /* General Styles */
+      .slides {
+      width: 90%;
+      position: relative; /* To position the buttons inside */
+      margin: auto;
+    }
+
+    .slides img {
+      width: 100%;
+      border-radius: 10px;
+      display: none; /* Hide all images initially */
+    }
+
+    /* Button Styles */
+    .button-left, .button-right {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.1);
+      color: white;
+      border: none;
+      padding: 16px;
+      cursor: pointer;
+      font-size: 24px;
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    .button-left {
+      left: 10px;
+    }
+
+    .button-right {
+      right: 10px;
+    }
+
+    .button-left:hover, .button-right:hover {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    /* Show the first image */
+    .active {
+      display: block;
+    }
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -195,7 +237,6 @@
       margin-top: 20px;
       animation: fadeIn 1.5s ease-in-out;
     }
-
   </style>
 </head>
 <body>
@@ -237,6 +278,20 @@
     </p>
   </div>
 
+  <h2 class="w3-center">Services</h2>
+
+<div class="slides">
+  <img class="mySlides active" src="13.png" alt="Image 1">
+  <img class="mySlides" src="14.png" alt="Image 2">
+  <img class="mySlides" src="15.png" alt="Image 3">
+  <img class="mySlides" src="16.png" alt="Image 4">
+  <img class="mySlides" src="17.png" alt="Image 5">
+  <img class="mySlides" src="18.png" alt="Image 6">
+
+  <button class="button-left" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="button-right" onclick="plusDivs(1)">&#10095;</button>
+</div>
+
   <script>
     function toggleAbout() {
       const aboutText = document.querySelector('.about p');
@@ -245,6 +300,25 @@
         aboutText.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }
+
+
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
   </script>
 
 </body>
