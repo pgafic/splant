@@ -22,20 +22,21 @@
 
     /* Header Styles */
     header {
-      background: #28a745; /* Green color */
+      background-color: #2a7a1e; /* PGA Green color */
       color: white;
-      padding: 20px 0;
+      padding: 20px;
       text-align: center;
+      width: 100%;
       position: sticky;
       top: 0;
       z-index: 1000;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      width: 100%;
     }
 
-    header h1 {
+    header h2 {
       margin: 0;
       font-size: 28px;
+      font-weight: 700;
       transition: color 0.3s ease;
     }
 
@@ -55,7 +56,7 @@
 
     header nav a:hover {
       background-color: white;
-      color: #333;
+      color: #2a7a1e;
     }
 
     /* Home Section */
@@ -93,16 +94,20 @@
     }
 
     .about p {
-      padding: 0 20px;
+      padding: 20px;
       max-width: 800px;
       line-height: 1.6;
       display: none;
       margin-top: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fadeInText 2s ease-in-out;
     }
 
     .about p.visible {
       display: block;
-      animation: fadeInText 2s ease-in-out;
     }
 
     .about button {
@@ -114,7 +119,7 @@
       cursor: pointer;
       font-size: 18px;
       margin-top: 20px;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .about button:hover {
@@ -221,12 +226,12 @@
     <img src="1.png" alt="About Image">
     <button onclick="toggleAbout()">Learn More</button>
     <h1>PGA Green Global Solutions Co.</h1>
-    <p>
-<b> PGA Green Global Solutions Co. </b>, based in Jaro, Iloilo City, is a leader in waterproofing and general construction, serving Western Visayas. The company specializes in residential and industrial projects, offering services such as <b> waterproofing, tank lining, crack injection, floor coating, finishing, repainting, and more. </b> Additionally, PGA provides personal protective equipment (PPE) to ensure safety and compliance.
-<br> <br> 
-Certified by <b> Pioneer Pro Adhesives & Waterproofing Products </b> in 2016 as the official applicator in Western Visayas, PGA upholds industry standards with <b> certifications from BIR and SEC. </b> Their mission focuses on delivering high-quality solutions while building strong client partnerships. 
-<br> <br> 
-PGA is also the exclusive regional distributor of <b> Plantex All-in-One</b>, a flagship product offering eco-friendly cleaning solutions through organic products.
+    <p id="aboutText">
+      <b>PGA Green Global Solutions Co.</b>, based in Jaro, Iloilo City, is a leader in waterproofing and general construction, serving Western Visayas. The company specializes in residential and industrial projects, offering services such as <b>waterproofing, tank lining, crack injection, floor coating, finishing, repainting, and more.</b> Additionally, PGA provides personal protective equipment (PPE) to ensure safety and compliance.
+      <br><br>
+      Certified by <b>Pioneer Pro Adhesives & Waterproofing Products</b> in 2016 as the official applicator in Western Visayas, PGA upholds industry standards with <b>certifications from BIR and SEC.</b> Their mission focuses on delivering high-quality solutions while building strong client partnerships.
+      <br><br>
+      PGA is also the exclusive regional distributor of <b>Plantex All-in-One</b>, a flagship product offering eco-friendly cleaning solutions through organic products.
     </p>
   </div>
 
@@ -234,6 +239,9 @@ PGA is also the exclusive regional distributor of <b> Plantex All-in-One</b>, a 
     function toggleAbout() {
       const aboutText = document.querySelector('.about p');
       aboutText.classList.toggle('visible');
+      if (aboutText.classList.contains('visible')) {
+        aboutText.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     }
   </script>
 
