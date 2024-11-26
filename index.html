@@ -250,6 +250,24 @@
       margin-top: 20px;
       animation: fadeIn 1.5s ease-in-out;
     }
+    /* Image container */
+    .image-container {
+      overflow: hidden; /* Ensures zoomed image stays within bounds */
+      border-radius: 10px;
+      width: 90%;
+    }
+
+    /* Image styling */
+    .image-container img {
+      width: 100%;
+
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* Zoom effect on hover */
+    .image-container:hover img {
+      transform: scale(1.1); /* Zoom in by 20% */
+    }
   </style>
 </head>
 <body>
@@ -304,8 +322,27 @@
   <button class="button-left" onclick="plusDivs(-1)">&#10094;</button>
   <button class="button-right" onclick="plusDivs(1)">&#10095;</button>
 </div>
+<br>
+<br>
 
- <br> 
+<div class="about">
+    <button onclick="toggleMoreInfo()">Learn More</button>
+    <img src="fic.png" style="width: 50%; margin-bottom: 1px;">
+    <br>
+    <br>
+    <br>
+     <h1 style="margin-top: 1px;"> <i> Your Safety is Our First Priority </i></h1>
+    <p id="moreInfoText">
+     <b>First Industry Company </b>is a sister company of PGA, and FIC focuses on implementing fire safety and security. FIC offers a range of services, including the installation and inspection of <b> Fire Detection and Alarm Systems</b>, as well as the refilling of fire extinguishers. Its flagship products include the <b>Fire 101 Extinguishers</b>, which are high-quality, non-toxic, and environmentally friendly, designed to combat various types of fires effectively.
+    </p>
+  </div>
+
+ <div class="image-container">
+  <img src="19.png" style="justify-content: center; width:90%">
+</div>
+<br>
+  <br>
+  <br>
   <br>
 
   <b><p>ILOILO BRANCH</p></b>
@@ -334,6 +371,14 @@ Email: pgabacolod2021@gmail.com</p>
         aboutText.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }
+
+    function toggleMoreInfo() {
+  const moreInfoText = document.querySelector('#moreInfoText');
+  moreInfoText.style.display = moreInfoText.style.display === 'block' ? 'none' : 'block';
+  if (moreInfoText.style.display === 'block') {
+    moreInfoText.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
 
 
 var slideIndex = 1;
